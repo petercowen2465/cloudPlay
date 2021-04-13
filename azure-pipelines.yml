@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'AzureRmPipeline-conn'
+    subscriptionId: 'fb011449-c0d1-4161-aa50-511dc1396e7e'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'efs-rg'
+    location: 'UK South'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/petercowen2465/cloudPlay/master/efs/template.json'
+    csmParametersFileLink: 'https://raw.githubusercontent.com/petercowen2465/cloudPlay/master/efs/parameters.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'EFSVM'
