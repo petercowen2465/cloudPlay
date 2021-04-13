@@ -18,7 +18,7 @@ steps:
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'efs-rg'
     location: 'UK South'
-    templateLocation: 'Linked artifact'
+    templateLocation: 'URL of the file'
     csmFileLink: : 'https://raw.githubusercontent.com/petercowen2465/cloudPlay/master/efs/template.json'
     csmParametersFileLink: : 'https://raw.githubusercontent.com/petercowen2465/cloudPlay/master/efs/parameters.json'
     deploymentMode: 'Incremental'
